@@ -58,17 +58,27 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 
 
+#include<vector>    
+
+using std::vector;
+
+struct tObjectInfo
+{
+    POINT g_ptObjectPos;
+    POINT g_ptObjectScale;
+};
+
+vector<tObjectInfo> g_vecInfo;
 
 
+// 좌 상단
+POINT g_ptLT;
 
-POINT g_ptObjectPos = {500,300};
-POINT g_ptObjectScale = { 100,100 };
-
-
-
-
+// 우측 하단
+POINT g_ptRB;
 
 
+bool bLbtDown = false;
 
 
 
@@ -171,11 +181,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             HBRUSH hDefaultBrush = (HBRUSH)SelectObject(hdc, hBlueBrush);
 
             // 변경된 펜으로 사각형 그림
-            Rectangle(hdc, g_ptObjectPos.x - g_ptObjectScale.x * 0.5,
-                g_ptObjectPos.y - g_ptObjectScale.y * 0.5,
-                g_ptObjectPos.x + g_ptObjectScale.x * 0.5,
-                g_ptObjectPos.y + g_ptObjectScale.y * 0.5);
-
+            if(bLbtDown)
+                Rectangle(hdc, g_ptLT.x, g_ptLT.y,g_ptRB.x,g_ptRB.y);
+            for (size_t i = 0; i < g_vecInfo.size(); ++i)
+            {
+                Rectangle(hdc,
+                    g_vecInfo[i].g_ptObjectPos.x - g_vecInfo[i].g_ptObjectScale.x * 0.5,
+                    g_vecInfo[i].g_ptObjectPos.y - g_vecInfo[i].g_ptObjectScale.y * 0.5,
+                    g_vecInfo[i].g_ptObjectPos.x + g_vecInfo[i].g_ptObjectScale.x * 0.5,
+                    g_vecInfo[i].g_ptObjectPos.y + g_vecInfo[i].g_ptObjectScale.y * 0.5
+                    );
+            }
             // 다시 펜과 브러쉬를 되돌림
             SelectObject(hdc, hDefaultPen);
             SelectObject(hdc, hDefaultBrush);
@@ -193,22 +209,22 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         switch (wParam)
         {
         case VK_UP:
-            g_ptObjectPos.y -= 10;
+            //g_ptObjectPos.y -= 10;
             InvalidateRect(hWnd, nullptr, true);
             // 특정 영역을 탐지해서 무효화 영역을 감지해서 변경이 일어난다면 다시 그려라고 하는 함수
             // 2번째 인자로 nullptr 을 넣으면 전체 영역을 탐지한다.
             // 3번째 인자로 기존의 모든 픽셀을 지울 수 있다
             break;
         case VK_DOWN:
-            g_ptObjectPos.y += 10;
+           // g_ptObjectPos.y += 10;
             InvalidateRect(hWnd, nullptr, true);
             break;
         case VK_LEFT:
-            g_ptObjectPos.x -= 10;
+           // g_ptObjectPos.x -= 10;
             InvalidateRect(hWnd, nullptr, true);
             break;
         case VK_RIGHT:
-            g_ptObjectPos.x += 10;
+          //  g_ptObjectPos.x += 10;
             InvalidateRect(hWnd, nullptr, true);
             break;
         case 'W':
@@ -219,10 +235,32 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
        break;
     case WM_LBUTTONDOWN:
     {
-        //lParam;
-        //x = LOWORD(lParam);
-        //y = HIWORD(lParam);
+        g_ptLT.x = LOWORD(lParam);
+        g_ptLT.y = HIWORD(lParam);
+        bLbtDown = true;
+    }
+    break;
+    case WM_MOUSEMOVE:
+        g_ptRB.x = LOWORD(lParam);
+        g_ptRB.y = HIWORD(lParam);
+        InvalidateRect(hWnd, nullptr, true);
         break;
+    case WM_LBUTTONUP:
+    {
+        g_ptLT.x = LOWORD(lParam);
+        g_ptLT.y = HIWORD(lParam);
+
+        tObjectInfo info{};
+        info.g_ptObjectPos.x = (g_ptLT.x + g_ptRB.x) * 0.5;
+        info.g_ptObjectPos.y = (g_ptLT.y + g_ptRB.y) * 0.5;
+
+        //absorute 절댓값 구하는 함수 abs
+        info.g_ptObjectScale.x = abs(g_ptLT.x - g_ptRB.x);
+        info.g_ptObjectScale.y = abs(g_ptLT.y - g_ptRB.y);
+
+        g_vecInfo.push_back(info);
+        bLbtDown = false;
+        InvalidateRect(hWnd, nullptr, true);
 
     }
         break;
