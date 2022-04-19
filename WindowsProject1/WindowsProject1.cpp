@@ -247,8 +247,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     case WM_LBUTTONUP:
     {
-        g_ptLT.x = LOWORD(lParam);
-        g_ptLT.y = HIWORD(lParam);
+        g_ptRB.x = LOWORD(lParam);
+        g_ptRB.y = HIWORD(lParam);
 
         tObjectInfo info{};
         info.g_ptObjectPos.x = (g_ptLT.x + g_ptRB.x) * 0.5;
