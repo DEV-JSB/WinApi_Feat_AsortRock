@@ -6,6 +6,8 @@
 
 #define MAX_LOADSTRING 100
 
+HWND g_hWnd;
+
 int x, y;
 // Global Variables:
 HINSTANCE hInst;                                // current instance
@@ -39,6 +41,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         return FALSE;
     }
 
+    SetTimer(g_hWnd, 0, 0, nullptr);
+
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WINDOWSPROJECT1));
 
     MSG msg;
@@ -52,6 +56,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             DispatchMessage(&msg);
         }
     }
+
+    KillTimer(g_hWnd, 0);
+    // 윈도우 메세지 기반 처리 방식을 쓰지 않고 게임을 만들 것 이다.
 
     return (int) msg.wParam;
 }
@@ -79,6 +86,9 @@ POINT g_ptRB;
 
 
 bool bLbtDown = false;
+
+
+// 윈도우 헨들 전역
 
 
 
@@ -122,19 +132,20 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // Store instance handle in our global variable
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+   g_hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
-   if (!hWnd)
+   if (!g_hWnd)
    {
       return FALSE;
    }
 
-   ShowWindow(hWnd, nCmdShow);
-   UpdateWindow(hWnd);
+   ShowWindow(g_hWnd, nCmdShow);
+   UpdateWindow(g_hWnd);
 
    return TRUE;
 }
+
 
 //
 //  FUNCTION: WndProc(HWND, UINT, WPARAM, LPARAM)
@@ -262,6 +273,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         bLbtDown = false;
         InvalidateRect(hWnd, nullptr, true);
 
+    }
+        break;
+    case WM_TIMER:
+    {
+        int a = 0;
     }
         break;
     case WM_DESTROY:
