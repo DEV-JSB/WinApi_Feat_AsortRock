@@ -86,6 +86,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 
             // 메세지가 없는 동안 호출을 계속 한다.
+
+            // 여기 Game Code 수행
+            // 디자인 패턴 첫 언급 
         }
     }
 
@@ -283,11 +286,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         bLbtDown = true;
     }
     break;
-    case WM_MOUSEMOVE:
-        g_ptRB.x = LOWORD(lParam);
-        g_ptRB.y = HIWORD(lParam);
-        InvalidateRect(hWnd, nullptr, true);
-        break;
     case WM_LBUTTONUP:
     {
         g_ptRB.x = LOWORD(lParam);
