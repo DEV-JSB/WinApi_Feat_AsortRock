@@ -47,13 +47,45 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
+    DWORD dwPrevCount = GetTickCount();
+
+
+    DWORD dwAccCount = 0;
+    //PeekMessage 는 Get과 다르게
+    //상시로 항상 메세지를 반환시킨다 .  
+
     // Main message loop:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    while (true)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+            int iTime = GetTickCount();
+            if (WM_QUIT == msg.message)
+                break;
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+            dwAccCount += (GetTickCount() - iTime);
+        }
+        else
+        {
+            DWORD dwCurCount = GetTickCount();
+            if (dwCurCount - dwPrevCount > 1000)
+            {
+                float tRatio = (float)dwAccCount / 1000.f;
+
+                wchar_t szBuff[50] = {};
+
+                swprintf_s(szBuff, L"비율 : %f", tRatio);
+                SetWindowText(g_hWnd, szBuff);
+
+                dwPrevCount = dwCurCount;
+            }
+
+
+            // 메세지가 없는 동안 호출을 계속 한다.
         }
     }
 
@@ -281,7 +313,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     }
         break;
     case WM_DESTROY:
-        PostQuitMessage(0);
+         (0);
         break;
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
