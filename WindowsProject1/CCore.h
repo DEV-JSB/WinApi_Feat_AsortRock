@@ -1,5 +1,29 @@
 #pragma once
 class CCore
 {
+private:
+	static CCore* g_pInst;
+public:
+	static CCore* GetInstance()
+	{
+		// 최초 호출 된 경우 ( static 변수는 반드시 초기화가 한번만 이루어진다 )
+		// 2번 이상 호출 된 경우
+		if (nullptr == g_pInst)
+		{
+			g_pInst = new CCore;
+		}
+		return g_pInst;
+	}
+	static void Release()
+	{
+		if (nullptr != g_pInst)
+		{
+			delete g_pInst;
+			g_pInst = nullptr;
+		}
+	}
+private:
+	CCore();
+	~CCore();
 };
 

@@ -3,7 +3,7 @@
 
 #include "framework.h"
 #include "WindowsProject1.h"
-
+#include"CCore.h"
 #define MAX_LOADSTRING 100
 
 HWND g_hWnd;
@@ -40,6 +40,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     {
         return FALSE;
     }
+
+
+
 
     SetTimer(g_hWnd, 0, 0, nullptr);
 
