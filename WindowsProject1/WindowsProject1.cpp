@@ -3,6 +3,7 @@
 #include "framework.h"
 #include "WindowsProject1.h"
 #include "CCore.h"
+#include"pch.h"
 #define MAX_LOADSTRING 100
 
 HWND g_hWnd;
