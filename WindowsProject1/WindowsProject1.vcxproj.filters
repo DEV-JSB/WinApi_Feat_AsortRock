@@ -25,6 +25,12 @@
     <Filter Include="Engine\01. Header">
       <UniqueIdentifier>{f648e6a1-43aa-47c3-b37a-b68857e65956}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Manager">
+      <UniqueIdentifier>{68a02459-05f4-435a-9dd1-7c0a9710c151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Manager\KeyMgr">
+      <UniqueIdentifier>{7709a955-d51f-4312-bb10-ea9b70fa4839}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -42,6 +48,13 @@
     <ClInclude Include="CCore.h">
       <Filter>Engine\02. Core</Filter>
     </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>Engine\01. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CKeyMgr.h">
+      <Filter>Engine\03. Manager\KeyMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WindowsProject1.rc">
@@ -62,6 +75,9 @@
     </ClCompile>
     <ClCompile Include="CCore.cpp">
       <Filter>Engine\02. Core</Filter>
+    </ClCompile>
+    <ClCompile Include="CKeyMgr.cpp">
+      <Filter>Engine\03. Manager\KeyMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,9 +1,8 @@
 // WindowsProject1.cpp : Defines the entry point for the application.
 //
-
 #include "framework.h"
 #include "WindowsProject1.h"
-#include"CCore.h"
+#include "CCore.h"
 #define MAX_LOADSTRING 100
 
 HWND g_hWnd;
@@ -41,6 +40,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         return FALSE;
     }
 
+
+    // Core 초기화
+    if (FAILED(CCore::GetInst()->Init(g_hWnd, POINT{1280,768})))
+    {
+        MessageBox(nullptr, L"Core 객체 초기화 실패", L"ERROR", MB_OK);
+
+        return FALSE;
+    }
 
 
 

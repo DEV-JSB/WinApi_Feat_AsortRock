@@ -1,4 +1,27 @@
 #include "CCore.h"
+#include"pch.h"
+
+//#include "CCore.h"
+//
+//
+//CCore* CCore::g_pInst = nullptr;
+CCore::CCore()
+{
+
+}
+CCore::~CCore()
+{
+}
 
 
-CCore* CCore::g_pInst = nullptr;
+int CCore::Init(HWND _hWnd, POINT _ptResolution)
+{
+	m_hWnd = _hWnd;
+	m_ptResolution = _ptResolution;
+
+	// 해상도에 맞게 윈도우 크기 조절
+
+
+	// 윈도우 식 참
+	return S_OK;
+}
