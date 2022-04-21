@@ -14,6 +14,10 @@ CCore::~CCore()
 }
 
 
+void CCore::progress()
+{
+}
+
 int CCore::Init(HWND _hWnd, POINT _ptResolution)
 {
 	m_hWnd = _hWnd;

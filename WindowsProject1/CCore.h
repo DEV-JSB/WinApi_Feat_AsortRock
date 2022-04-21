@@ -39,6 +39,7 @@ private:
 	POINT m_ptResolution;	//ÇØ»óµµ
 public:
 	int Init(HWND _hWnd, POINT _ptResolution);
+	void progress();
 private:
 	CCore();
 	~CCore();
