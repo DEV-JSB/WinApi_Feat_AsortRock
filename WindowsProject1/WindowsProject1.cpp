@@ -280,11 +280,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
     }
         break;
-    case WM_TIMER:
-    {
-        int a = 0;
-    }
-        break;
+    //case WM_TIMER:
+    //{
+    //    int a = 0;
+    //}
+    //    break;
     case WM_DESTROY:
          (0);
         break;
