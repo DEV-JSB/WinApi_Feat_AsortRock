@@ -1,2 +1,2 @@
 #include "CKeyMgr.h"
-#include"pch.h"
+#include"Test.h"

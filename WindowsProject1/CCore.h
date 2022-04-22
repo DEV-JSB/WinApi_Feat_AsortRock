@@ -29,7 +29,6 @@
 
 #include "define.h"
 
-
 class CCore
 {
 
