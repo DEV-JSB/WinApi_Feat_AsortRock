@@ -3,6 +3,7 @@
 #include "framework.h"
 #include "WindowsProject1.h"
 #include "CCore.h"
+#include"Test.h"
 #define MAX_LOADSTRING 100
 
 HWND g_hWnd;
@@ -85,28 +86,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 }
 
 
-
-#include<vector>    
-
-using std::vector;
-
-struct tObjectInfo
-{
-    POINT g_ptObjectPos;
-    POINT g_ptObjectScale;
-};
-
-vector<tObjectInfo> g_vecInfo;
-
-
-// 좌 상단
-POINT g_ptLT;
-
-// 우측 하단
-POINT g_ptRB;
-
-
-bool bLbtDown = false;
 
 
 // 윈도우 헨들 전역
@@ -203,93 +182,19 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         {
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
+           // Rectangle(hdc, 1180, 668, 1280, 768);
 
-            // 직접 펜과 브러쉬를 만들어서 DC 에 지급
-            HPEN hRedPen = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
-            HBRUSH hBlueBrush = CreateSolidBrush(RGB(0, 0, 255));
-
-            // 기존 펜과 브러쉬 ID 값을 받아 둠
-            HPEN hDefaultPen = (HPEN)SelectObject(hdc, hRedPen);
-            HBRUSH hDefaultBrush = (HBRUSH)SelectObject(hdc, hBlueBrush);
-
-            // 변경된 펜으로 사각형 그림
-            if(bLbtDown)
-                Rectangle(hdc, g_ptLT.x, g_ptLT.y,g_ptRB.x,g_ptRB.y);
-            for (size_t i = 0; i < g_vecInfo.size(); ++i)
-            {
-                Rectangle(hdc,
-                    g_vecInfo[i].g_ptObjectPos.x - g_vecInfo[i].g_ptObjectScale.x * 0.5,
-                    g_vecInfo[i].g_ptObjectPos.y - g_vecInfo[i].g_ptObjectScale.y * 0.5,
-                    g_vecInfo[i].g_ptObjectPos.x + g_vecInfo[i].g_ptObjectScale.x * 0.5,
-                    g_vecInfo[i].g_ptObjectPos.y + g_vecInfo[i].g_ptObjectScale.y * 0.5
-                    );
-            }
-            // 다시 펜과 브러쉬를 되돌림
-            SelectObject(hdc, hDefaultPen);
-            SelectObject(hdc, hDefaultBrush);
-
-            // 다 쓴 Red 펜 삭제 요청
-            // 다 쓴 Blue 브러쉬 삭제 요청
-            DeleteObject(hRedPen);
-            DeleteObject(hBlueBrush);
-            // TODO: Add any drawing code that uses hdc here...
             EndPaint(hWnd, &ps);
         }
         break;
     case WM_KEYDOWN:
-    {
-        switch (wParam)
-        {
-        case VK_UP:
-            //g_ptObjectPos.y -= 10;
-            InvalidateRect(hWnd, nullptr, true);
-            // 특정 영역을 탐지해서 무효화 영역을 감지해서 변경이 일어난다면 다시 그려라고 하는 함수
-            // 2번째 인자로 nullptr 을 넣으면 전체 영역을 탐지한다.
-            // 3번째 인자로 기존의 모든 픽셀을 지울 수 있다
-            break;
-        case VK_DOWN:
-           // g_ptObjectPos.y += 10;
-            InvalidateRect(hWnd, nullptr, true);
-            break;
-        case VK_LEFT:
-           // g_ptObjectPos.x -= 10;
-            InvalidateRect(hWnd, nullptr, true);
-            break;
-        case VK_RIGHT:
-          //  g_ptObjectPos.x += 10;
-            InvalidateRect(hWnd, nullptr, true);
-            break;
-        case 'W':
-
-            break;
-        }
-    }
+   
        break;
     case WM_LBUTTONDOWN:
-    {
-        g_ptLT.x = LOWORD(lParam);
-        g_ptLT.y = HIWORD(lParam);
-        bLbtDown = true;
-    }
-    break;
+   
+        break;
     case WM_LBUTTONUP:
-    {
-        g_ptRB.x = LOWORD(lParam);
-        g_ptRB.y = HIWORD(lParam);
-
-        tObjectInfo info{};
-        info.g_ptObjectPos.x = (g_ptLT.x + g_ptRB.x) * 0.5;
-        info.g_ptObjectPos.y = (g_ptLT.y + g_ptRB.y) * 0.5;
-
-        //absorute 절댓값 구하는 함수 abs
-        info.g_ptObjectScale.x = abs(g_ptLT.x - g_ptRB.x);
-        info.g_ptObjectScale.y = abs(g_ptLT.y - g_ptRB.y);
-
-        g_vecInfo.push_back(info);
-        bLbtDown = false;
-        InvalidateRect(hWnd, nullptr, true);
-
-    }
+   
         break;
     //case WM_TIMER:
     //{
