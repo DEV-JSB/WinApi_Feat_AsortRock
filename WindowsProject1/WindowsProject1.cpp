@@ -3,9 +3,11 @@
 #include "framework.h"
 #include "WindowsProject1.h"
 #include "CCore.h"
+#include "define.h"
 #define MAX_LOADSTRING 100
 
 HWND g_hWnd;
+
 
 int x, y;
 // Global Variables:
