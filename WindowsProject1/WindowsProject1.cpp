@@ -1,9 +1,9 @@
 // WindowsProject1.cpp : Defines the entry point for the application.
 //
+#include"pch.h"
 #include "framework.h"
 #include "WindowsProject1.h"
 #include "CCore.h"
-#include"Test.h"
 #define MAX_LOADSTRING 100
 
 HWND g_hWnd;

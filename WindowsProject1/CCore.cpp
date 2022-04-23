@@ -1,5 +1,5 @@
+#include"pch.h"
 #include "CCore.h"
-#include"Test.h"
 #include"CObject.h"
 //#include "CCore.h"
 //
