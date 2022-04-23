@@ -28,7 +28,7 @@
 //};
 
 #include "define.h"
-#include<Windows.h>
+
 
 class CCore
 {

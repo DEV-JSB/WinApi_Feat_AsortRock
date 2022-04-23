@@ -1,6 +1,5 @@
 #include "CCore.h"
 #include"pch.h"
-#include "define.h"
 
 //#include "CCore.h"
 //
