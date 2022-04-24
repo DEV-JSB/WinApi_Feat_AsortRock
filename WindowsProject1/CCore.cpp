@@ -55,20 +55,8 @@ int CCore::Init(HWND _hWnd, POINT _ptResolution)
 
 void CCore::progress()
 {
-
-//static int callcount = 0;
-//++callcount;
-//
-//static int iPrevCount = GetTickCount();
-//
-//int CurCount = GetTickCount();
-//
-//if (GetTickCount() - iPrevCount > 1000)
-//{
-//	callcount;
-//	iPrevCount = GetTickCount();
-//	callcount = 0;
-//}
+	// Manager Update
+	CTimeMgr::GetInst()->update();
 
 	update();
 
@@ -80,12 +68,12 @@ void CCore::update()
 	Vec2 vPos = g_obj.GetPos();
 	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
 	{
-		vPos.x -= 0.01;
+		vPos.x -= 100.f * DT;
 	}
 	
 	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
 	{
-		vPos.x += 0.01;
+		vPos.x += 200.f * DT;
 	}
 
 	g_obj.SetPos(vPos);
