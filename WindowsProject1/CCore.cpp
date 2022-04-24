@@ -1,6 +1,8 @@
 #include"pch.h"
+#include"CKeyMgr.h"
 #include "CCore.h"
 #include"CObject.h"
+#include"CTimeMgr.h"
 //#include "CCore.h"
 //
 //
@@ -36,6 +38,10 @@ int CCore::Init(HWND _hWnd, POINT _ptResolution)
 
 	// 내부적으로 따로 그리기 전용 DC 생성
 	m_hDC = GetDC(m_hWnd);
+
+	//Manager 초기화
+	CTimeMgr::GetInst()->Init();
+	CKeyMgr::GetInst()->Init();
 
 	g_obj.SetPos(Vec2((float)m_ptResolution.x/2,(float)m_ptResolution.y /2));
 	g_obj.SetScale(Vec2(100,100));

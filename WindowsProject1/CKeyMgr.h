@@ -5,7 +5,11 @@
 
 class CKeyMgr
 {
-public:
+
 	SINGLE(CKeyMgr);
+public:
+	void Init();
+
+
 };
 

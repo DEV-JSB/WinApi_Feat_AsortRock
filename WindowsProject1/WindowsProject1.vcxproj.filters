@@ -34,6 +34,9 @@
     <Filter Include="Engine\04. Object">
       <UniqueIdentifier>{665adf68-2217-4079-a8c8-7592f9fe0245}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Manager\CTimeMgr">
+      <UniqueIdentifier>{a566513e-0c1e-48d6-8b0c-b7fb88e4f518}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -64,6 +67,9 @@
     <ClInclude Include="Struct.h">
       <Filter>Engine\01. Header</Filter>
     </ClInclude>
+    <ClInclude Include="CTimeMgr.h">
+      <Filter>Engine\03. Manager\CTimeMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WindowsProject1.rc">
@@ -90,6 +96,9 @@
     </ClCompile>
     <ClCompile Include="CObject.cpp">
       <Filter>Engine\04. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CTimeMgr.cpp">
+      <Filter>Engine\03. Manager\CTimeMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
