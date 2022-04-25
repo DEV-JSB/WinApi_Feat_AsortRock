@@ -81,14 +81,14 @@ void CCore::progress()
 void CCore::update()
 {
 	Vec2 vPos = g_obj.GetPos();
-	if (CKeyMgr::GetInst()->GetKeyState(KEY::LEFT)==KEY_STATE::TAP)
+	if (CKeyMgr::GetInst()->GetKeyState(KEY::LEFT)==KEY_STATE::HOLD)
 	{
-		vPos.x -= 200.f;// * DT;
+		vPos.x -= 200.f * fDT;
 	}
 	
-	if (CKeyMgr::GetInst()->GetKeyState(KEY::RIGHT) == KEY_STATE::TAP)
+	if (CKeyMgr::GetInst()->GetKeyState(KEY::RIGHT) == KEY_STATE::HOLD)
 	{
-		vPos.x += 200.f;// *DT;
+		vPos.x += 200.f * fDT;
 	}
 
 	g_obj.SetPos(vPos);
