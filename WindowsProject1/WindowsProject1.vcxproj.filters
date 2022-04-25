@@ -37,6 +37,15 @@
     <Filter Include="Engine\03. Manager\CTimeMgr">
       <UniqueIdentifier>{a566513e-0c1e-48d6-8b0c-b7fb88e4f518}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene">
+      <UniqueIdentifier>{c40d409d-933f-40d0-87db-7eaba88a919e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Manager\SceneMgr">
+      <UniqueIdentifier>{3fb34b16-f8d9-4737-b1b4-07160e41a6c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\05. Scene\Scene_start">
+      <UniqueIdentifier>{1178ce06-adbd-4758-920d-a44c304556f4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -70,6 +79,15 @@
     <ClInclude Include="CTimeMgr.h">
       <Filter>Engine\03. Manager\CTimeMgr</Filter>
     </ClInclude>
+    <ClInclude Include="CScene.h">
+      <Filter>Engine\05. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CSceneMgr.h">
+      <Filter>Engine\03. Manager\SceneMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CScene_Start.h">
+      <Filter>Engine\05. Scene\Scene_start</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WindowsProject1.rc">
@@ -99,6 +117,15 @@
     </ClCompile>
     <ClCompile Include="CTimeMgr.cpp">
       <Filter>Engine\03. Manager\CTimeMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene.cpp">
+      <Filter>Engine\05. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneMgr.cpp">
+      <Filter>Engine\03. Manager\SceneMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene_Start.cpp">
+      <Filter>Engine\05. Scene\Scene_start</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

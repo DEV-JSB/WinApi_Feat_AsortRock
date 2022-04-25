@@ -6,5 +6,8 @@
 #include <iostream>
 #include <vector>
 using std::vector;
+#include<string>
+using std::string;
+using std::wstring;
 #include"Struct.h"
 #include"define.h"
