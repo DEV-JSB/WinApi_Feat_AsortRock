@@ -13,6 +13,19 @@ public:
 	void SetName(const wstring& _strName) { m_strName = _strName; }
 	wstring GetName() { return m_strName; }
 
+	virtual void Enter() = 0; // 해당 씬에 진입시 호출
+	virtual void Exit() = 0;  // 해당 씬에 탈출시 호출
+
+
+	void update();
+	void render(HDC _hdc);
+
+protected:
+	void AddObject(CObject* _pObj, GROUP_TYPE _eType)
+	{
+		m_arrvecObj[(UINT)_eType].push_back(_pObj);
+	}
+
 public:
 	CScene();
 	virtual ~CScene();

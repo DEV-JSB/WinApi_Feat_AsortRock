@@ -18,7 +18,6 @@ CCore::CCore()
 
 }
 
-CObject g_obj;
 
 CCore::~CCore()
 {
@@ -61,9 +60,6 @@ int CCore::Init(HWND _hWnd, POINT _ptResolution)
 
 
 
-	g_obj.SetPos(Vec2((float)m_ptResolution.x/2,(float)m_ptResolution.y /2));
-	g_obj.SetScale(Vec2(100,100));
-
 
 	// 윈도우 식 참
 	return S_OK;
@@ -76,47 +72,19 @@ void CCore::progress()
 	// Manager Update
 	CTimeMgr::GetInst()->update();
 	CKeyMgr::GetInst()->update();
+	CSceneMgr::GetInst()->update();
 
-	update();
 
-	render();
-}
-
-void CCore::update()
-{
-	Vec2 vPos = g_obj.GetPos();
-	if (CKeyMgr::GetInst()->GetKeyState(KEY::LEFT)==KEY_STATE::HOLD)
-	{
-		vPos.x -= 200.f * fDT;
-	}
-	
-	if (CKeyMgr::GetInst()->GetKeyState(KEY::RIGHT) == KEY_STATE::HOLD)
-	{
-		vPos.x += 200.f * fDT;
-	}
-
-	g_obj.SetPos(vPos);
-}
-
-void CCore::render()
-{
-	// 화면 Clear 화면 재구성
+	// ==================================
+	// Rendering
+	// ==================================
 
 	Rectangle(m_memDC, -1, -1, m_ptResolution.x + 1, m_ptResolution.y + 1);
 
+	CSceneMgr::GetInst()->render(m_memDC);
 
-	// 그리기
-	Vec2 vPos = g_obj.GetPos();
-	Vec2 vScale = g_obj.GetScale();
-	Rectangle(m_memDC, (int)vPos.x - vScale.x / 2.f
-					, (int)vPos.y - vScale.y / 2.f
-					, (int)vPos.x + vScale.x / 2.f
-					, (int)vPos.y + vScale.y / 2.f);
-	Rectangle(m_memDC, (int)vPos.x - vScale.x / 2.f -100
-		, (int)vPos.y - vScale.y / 2.f -100
-		, (int)vPos.x + vScale.x -100
-		, (int)vPos.y + vScale.y-100);
+	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y,
+		m_memDC, 0, 0, SRCCOPY);
 
-	BitBlt(m_hDC,0,0,m_ptResolution.x,m_ptResolution.y,
-			m_memDC, 0, 0,SRCCOPY);
 }
+

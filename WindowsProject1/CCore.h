@@ -17,8 +17,8 @@ public:
 	int Init(HWND _hWnd, POINT _ptResolution);
 	void progress();
 private:
-	void update();
-	void render();
+	//void update();
+	//void render();
 public:
 	HWND GetMainHwnd() { return m_hWnd; }
 
