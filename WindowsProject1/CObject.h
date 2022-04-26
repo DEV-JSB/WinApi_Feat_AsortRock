@@ -13,9 +13,8 @@ public:
 
 
 public:
-	void update();
-	void render(HDC _dc);
-
+	virtual void update() = 0;
+	virtual void render(HDC _dc);
 
 public:
 	CObject();

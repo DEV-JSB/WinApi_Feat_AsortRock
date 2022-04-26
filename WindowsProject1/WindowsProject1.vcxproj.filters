@@ -46,6 +46,15 @@
     <Filter Include="Engine\05. Scene\Scene_start">
       <UniqueIdentifier>{1178ce06-adbd-4758-920d-a44c304556f4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Player">
+      <UniqueIdentifier>{bf30c002-fc3f-4764-9451-c17d448c5bcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\Moster">
+      <UniqueIdentifier>{1c6f1d67-5641-4ec5-94ed-6d99a902e133}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\Missle">
+      <UniqueIdentifier>{9137f4c1-5bc0-4469-bb78-4bd87a932095}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -88,6 +97,15 @@
     <ClInclude Include="CScene_Start.h">
       <Filter>Engine\05. Scene\Scene_start</Filter>
     </ClInclude>
+    <ClInclude Include="CPlayer.h">
+      <Filter>Engine\04. Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonster.h">
+      <Filter>Engine\04. Object\Moster</Filter>
+    </ClInclude>
+    <ClInclude Include="CMissle.h">
+      <Filter>Engine\04. Object\Missle</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WindowsProject1.rc">
@@ -126,6 +144,15 @@
     </ClCompile>
     <ClCompile Include="CScene_Start.cpp">
       <Filter>Engine\05. Scene\Scene_start</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayer.cpp">
+      <Filter>Engine\04. Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonster.cpp">
+      <Filter>Engine\04. Object\Moster</Filter>
+    </ClCompile>
+    <ClCompile Include="CMissle.cpp">
+      <Filter>Engine\04. Object\Missle</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

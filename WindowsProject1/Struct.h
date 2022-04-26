@@ -5,6 +5,8 @@ struct Vec2
 {
 	float x;
 	float y;
+
+public:
 public:
 	Vec2()
 		:x(0.f)
@@ -20,5 +22,11 @@ public:
 		:x((float)_x)
 		,y((float)_y)
 	{}
+	Vec2(const POINT& _pt)
+		:x((float)_pt.x)
+		, y((float)_pt.y)
+	{
+
+	}
 };
 // 힘 , 크기를 갖고 있는 벡터
