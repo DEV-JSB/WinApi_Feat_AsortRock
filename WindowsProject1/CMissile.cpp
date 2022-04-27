@@ -6,7 +6,8 @@ void CMissile::update()
 {
 	Vec2 vPos = GetPos();
 
-	vPos.y += 500.f * fDT * m_iDir;
+	vPos.x += 100.f * fDT * cosf(m_fTheta);
+	vPos.y -= 100.f * fDT * sinf(m_fTheta);
 
 	SetPos(vPos);
 }
@@ -20,7 +21,7 @@ void CMissile::render(HDC _hdc)
 }
 
 CMissile::CMissile()
-	: m_iDir(1.f)
+	: m_fTheta(PI/4.f)
 {
 }
 

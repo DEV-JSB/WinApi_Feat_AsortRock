@@ -20,7 +20,7 @@
 #define KEY_TAP_AWAY(key) KEY_CHECK(key,KEY_STATE::AWAY)
 #define KEY_TAP_NONE(key) KEY_CHECK(key,KEY_STATE::NONE)
 
-
+#define PI 3.1415926535f
 
 
 enum class GROUP_TYPE
