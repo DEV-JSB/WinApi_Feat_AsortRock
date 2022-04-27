@@ -15,6 +15,7 @@ public:
     }
 private:
     virtual void update();
+    virtual void render(HDC _hdc);
 public:
     CMissile();
     ~CMissile();
