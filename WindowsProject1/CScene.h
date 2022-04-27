@@ -20,7 +20,7 @@ public:
 	void update();
 	void render(HDC _hdc);
 
-protected:
+public:
 	void AddObject(CObject* _pObj, GROUP_TYPE _eType)
 	{
 		m_arrvecObj[(UINT)_eType].push_back(_pObj);

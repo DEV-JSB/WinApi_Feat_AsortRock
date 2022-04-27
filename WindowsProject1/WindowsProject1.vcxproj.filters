@@ -103,7 +103,7 @@
     <ClInclude Include="CMonster.h">
       <Filter>Engine\04. Object\Moster</Filter>
     </ClInclude>
-    <ClInclude Include="CMissle.h">
+    <ClInclude Include="CMissile.h">
       <Filter>Engine\04. Object\Missle</Filter>
     </ClInclude>
   </ItemGroup>
@@ -151,7 +151,7 @@
     <ClCompile Include="CMonster.cpp">
       <Filter>Engine\04. Object\Moster</Filter>
     </ClCompile>
-    <ClCompile Include="CMissle.cpp">
+    <ClCompile Include="CMissile.cpp">
       <Filter>Engine\04. Object\Missle</Filter>
     </ClCompile>
   </ItemGroup>

@@ -14,6 +14,14 @@
 #define fDT CTimeMgr::GetInst()->GetfDT()
 #define DT CTimeMgr::GetInst()->GetDT()
 
+#define KEY_CHECK(key,state) CKeyMgr::GetInst()->GetKeyState(key) == state
+#define KEY_HOLD_CHECK(key) KEY_CHECK(key,KEY_STATE::HOLD)
+#define KEY_TAP_CHECK(key) KEY_CHECK(key,KEY_STATE::TAP)
+#define KEY_TAP_AWAY(key) KEY_CHECK(key,KEY_STATE::AWAY)
+#define KEY_TAP_NONE(key) KEY_CHECK(key,KEY_STATE::NONE)
+
+
+
 
 enum class GROUP_TYPE
 {

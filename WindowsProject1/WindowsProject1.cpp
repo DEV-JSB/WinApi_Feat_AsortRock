@@ -91,7 +91,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 // 윈도우 헨들 전역
 
 
-
 //
 //  FUNCTION: MyRegisterClass()
 //
