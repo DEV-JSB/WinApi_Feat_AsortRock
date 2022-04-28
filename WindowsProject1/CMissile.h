@@ -6,10 +6,17 @@ class CMissile :
 private:
    // float m_iDir; // 위 아래 방향 
     float m_fTheta; // 이동 각도
+
+
+    Vec2  m_vDir;
 public:
     void SetDir(float _fTheta)
     {
         m_fTheta = _fTheta;
+    }
+    void SetDir(Vec2 _vDir) {
+        m_vDir = _vDir;
+        m_vDir.Normalize();
     }
 private:
     virtual void update();

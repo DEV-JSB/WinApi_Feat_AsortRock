@@ -7,6 +7,20 @@ struct Vec2
 	float y;
 
 public:
+	float Length()
+	{
+		return sqrt(x * x + y * y);
+	}
+
+	Vec2& Normalize()
+	{
+		float flen = Length();
+		assert(flen != 0.f);
+		// 0 이면 나누지 않겠다가 아닌 0이라면 문제라고 판단하여 중단.
+		x /= flen;
+		y /= flen;
+		return *this;
+	}
 public:
 	Vec2()
 		:x(0.f)
