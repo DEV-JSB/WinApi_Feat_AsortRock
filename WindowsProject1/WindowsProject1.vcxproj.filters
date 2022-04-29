@@ -55,6 +55,15 @@
     <Filter Include="Engine\04. Object\Missle">
       <UniqueIdentifier>{9137f4c1-5bc0-4469-bb78-4bd87a932095}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\06. Resource">
+      <UniqueIdentifier>{9dfa1c5f-06a9-4b06-9b96-c25d89567bc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\06. Resource\Texture">
+      <UniqueIdentifier>{61b1584b-ffdd-429b-a4a7-1ff30c91d6d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\06. Resource\Sound">
+      <UniqueIdentifier>{fe6a2cdd-8f99-4444-b075-1e280d587be7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -106,6 +115,15 @@
     <ClInclude Include="CMissile.h">
       <Filter>Engine\04. Object\Missle</Filter>
     </ClInclude>
+    <ClInclude Include="CResource.h">
+      <Filter>Engine\06. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="CTexture.h">
+      <Filter>Engine\06. Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="CSound.h">
+      <Filter>Engine\06. Resource\Sound</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WindowsProject1.rc">
@@ -153,6 +171,15 @@
     </ClCompile>
     <ClCompile Include="CMissile.cpp">
       <Filter>Engine\04. Object\Missle</Filter>
+    </ClCompile>
+    <ClCompile Include="CResource.cpp">
+      <Filter>Engine\06. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="CTexture.cpp">
+      <Filter>Engine\06. Resource\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="CSound.cpp">
+      <Filter>Engine\06. Resource\Sound</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
