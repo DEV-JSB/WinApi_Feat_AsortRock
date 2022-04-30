@@ -3,5 +3,7 @@
 class CSound :
     public CResource
 {
+public:
+
 };
 
