@@ -39,6 +39,11 @@ void CTimeMgr::update()
 	m_llPrevCount = m_llCurCount;
 	m_dAcc += m_dDT;
 
+}
+
+void CTimeMgr::render()
+{
+
 	++m_iCallCount;
 
 	if (m_dAcc >= 1.f)//????

@@ -10,6 +10,8 @@ CTexture::CTexture()
 
 CTexture::~CTexture()
 {
+	DeleteDC(m_dc);
+	DeleteObject(m_hBit);
 }
 
 void CTexture::Load(const wstring& _strFilePath)

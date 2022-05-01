@@ -40,7 +40,6 @@ public:
 		:x((float)_pt.x)
 		, y((float)_pt.y)
 	{
-
 	}
 };
 // 힘 , 크기를 갖고 있는 벡터
