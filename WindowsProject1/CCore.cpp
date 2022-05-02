@@ -89,6 +89,6 @@ void CCore::progress()
 		m_memDC, 0, 0, SRCCOPY);
 
 
-	//CTimeMgr::GetInst()->render();
+	CTimeMgr::GetInst()->render();
 }
 

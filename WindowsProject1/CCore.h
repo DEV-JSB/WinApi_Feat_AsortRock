@@ -20,6 +20,7 @@ private:
 	//void update();
 	//void render();
 public:
+	HDC GetMainDC() { return m_hDC; }
 	HWND GetMainHwnd() { return m_hWnd; }
 	POINT GetResolution() { return m_ptResolution; }
 

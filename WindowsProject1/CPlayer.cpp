@@ -5,8 +5,20 @@
 #include"CSceneMgr.h"
 #include"CMissile.h"
 #include"CScene.h"
+#include"CTexture.h"
+#include"CPathMgr.h"
+
+CPlayer::CPlayer()
+	:m_pTex(nullptr)
+{
+
+	m_pTex = new CTexture;
 
 
+	wstring strFilepath = CPathMgr::GetInst()->GetContentPath();
+	strFilepath += L"texture\\BLK.bmp";
+	m_pTex->Load(strFilepath);
+}
 void CPlayer::update()
 {
 	Vec2 vPos = GetPos();
@@ -36,6 +48,29 @@ void CPlayer::update()
 
 }
 
+void CPlayer::render(HDC _dc)
+{
+	int iWidth = (int)m_pTex->Width();
+	int iHeight = (int)m_pTex->Height();
+
+	Vec2 vPos = GetPos();
+	//BitBlt(_dc
+	//		, (int)(vPos.x - (float)(iWidth / 2))
+	//		, (int)(vPos.y - (float)(iHeight / 2))
+	//		, iWidth, iHeight
+	//		, m_pTex->GetDC()
+	//		, 0, 0, SRCCOPY);
+
+	TransparentBlt(_dc
+		, (int)(vPos.x - (float)(iWidth / 2))
+		, (int)(vPos.y - (float)(iHeight / 2))
+		, iWidth, iHeight
+		, m_pTex->GetDC()
+		, 0, 0, iWidth, iHeight
+		, RGB(2, 2, 2));
+	// 내가 받은 텍스쳐의 RGB 를 2,2,2 라서 2,2,2 를 무시해라 했더니 잘 된다. ㅋㅋ
+}
+
 void CPlayer::CreateMissile()
 {
 	Vec2 vMissilePos = GetPos();
@@ -49,6 +84,12 @@ void CPlayer::CreateMissile()
 	CScene* pCurScene = CSceneMgr::GetInst()->GetCurScene();
 	pCurScene->AddObject(pMissile, GROUP_TYPE::DEFAULT);
 
+}
+
+CPlayer::~CPlayer()
+{
+	if (nullptr != m_pTex)
+		delete m_pTex;
 }
 
 //void CPlayer::render(HDC _dc)
