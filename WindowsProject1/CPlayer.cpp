@@ -16,7 +16,7 @@ CPlayer::CPlayer()
 
 
 	wstring strFilepath = CPathMgr::GetInst()->GetContentPath();
-	strFilepath += L"texture\\BLK.bmp";
+	strFilepath += L"texture\\File.bmp";
 	m_pTex->Load(strFilepath);
 }
 void CPlayer::update()
