@@ -7,17 +7,20 @@
 #include"CScene.h"
 #include"CTexture.h"
 #include"CPathMgr.h"
+#include"CResMgr.h"
 
 CPlayer::CPlayer()
 	:m_pTex(nullptr)
 {
 
-	m_pTex = new CTexture;
+	CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\File.bmp");
+
+	/*m_pTex = new CTexture;
 
 
 	wstring strFilepath = CPathMgr::GetInst()->GetContentPath();
 	strFilepath += L"texture\\File.bmp";
-	m_pTex->Load(strFilepath);
+	m_pTex->Load(strFilepath);*/
 }
 void CPlayer::update()
 {
@@ -88,8 +91,10 @@ void CPlayer::CreateMissile()
 
 CPlayer::~CPlayer()
 {
-	if (nullptr != m_pTex)
-		delete m_pTex;
+	// 지가 받아! 썼으면서 왜 지가 멋대로 지워!!
+
+	/*if (nullptr != m_pTex)
+		delete m_pTex;*/
 }
 
 //void CPlayer::render(HDC _dc)

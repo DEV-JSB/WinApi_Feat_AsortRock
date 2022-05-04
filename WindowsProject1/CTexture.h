@@ -15,8 +15,11 @@ public:
     UINT Height() { return m_bitInfo.bmHeight; }
 
     HDC GetDC() { return m_dc; }
-public:
+private:
+    // 누구나 생성할 수 없게 막자
     CTexture();
     ~CTexture();
+
+    friend class CResMgr;
 };
 
