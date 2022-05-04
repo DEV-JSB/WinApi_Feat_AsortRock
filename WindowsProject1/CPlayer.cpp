@@ -13,7 +13,7 @@ CPlayer::CPlayer()
 	:m_pTex(nullptr)
 {
 
-	CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\File.bmp");
+	m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\Test.bmp");
 
 	/*m_pTex = new CTexture;
 
