@@ -17,8 +17,14 @@ public:
 	virtual void Exit() = 0;  // «ÿ¥Á æ¿ø° ≈ª√‚Ω√ »£√‚
 
 
+
 	void update();
+	void finalupdate();
 	void render(HDC _hdc);
+
+
+
+
 
 public:
 	void AddObject(CObject* _pObj, GROUP_TYPE _eType)

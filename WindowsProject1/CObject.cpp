@@ -2,6 +2,7 @@
 #include "CObject.h"
 #include"CTimeMgr.h"
 #include"CKeyMgr.h"
+#include"CCollider.h"
 
 void CObject::update()
 {
@@ -29,12 +30,28 @@ void CObject::render(HDC _dc)
 					(int)(m_vPos.x + m_vScale.x / 2.f), (int)(m_vPos.y + m_vScale.y / 2.f));
 }
 
+void CObject::finalupdate()
+{
+	if (m_pCollider)
+		m_pCollider->finalupdate();
+}
+
 CObject::CObject()
 	: m_vPos{}
 	, m_vScale{}
+	, m_pCollider(nullptr)
 {
 }
 
 CObject::~CObject()
 {
+	if (nullptr != m_pCollider)
+		delete(m_pCollider);
+}
+
+
+void CObject::CreateCollider()
+{
+	m_pCollider = new CCollider;
+	m_pCollider->m_pOwner = this;
 }

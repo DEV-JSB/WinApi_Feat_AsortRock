@@ -70,6 +70,9 @@
     <Filter Include="Engine\03. Manager\ResMgr">
       <UniqueIdentifier>{ac0c4f96-c665-4fdb-857d-a20f383385c2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\07. Compent">
+      <UniqueIdentifier>{dd2020a1-824a-4e65-a32a-955a7874777a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -136,6 +139,9 @@
     <ClInclude Include="CResMgr.h">
       <Filter>Engine\03. Manager\ResMgr</Filter>
     </ClInclude>
+    <ClInclude Include="CCollider.h">
+      <Filter>Engine\07. Compent</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WindowsProject1.rc">
@@ -198,6 +204,9 @@
     </ClCompile>
     <ClCompile Include="CResMgr.cpp">
       <Filter>Engine\03. Manager\ResMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CCollider.cpp">
+      <Filter>Engine\07. Compent</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

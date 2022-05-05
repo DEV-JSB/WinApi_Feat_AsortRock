@@ -26,6 +26,8 @@ CMissile::CMissile()
 	, m_vDir(1.f, 1.f)
 {
 	m_vDir.Normalize();
+	CreateCollider();
+
 }
 
 CMissile::~CMissile()

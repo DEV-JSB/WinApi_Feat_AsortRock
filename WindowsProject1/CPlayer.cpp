@@ -15,6 +15,8 @@ CPlayer::CPlayer()
 
 	m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\Test.bmp");
 
+	CreateCollider();
+
 	/*m_pTex = new CTexture;
 
 
