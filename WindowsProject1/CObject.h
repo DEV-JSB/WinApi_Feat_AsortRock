@@ -17,6 +17,8 @@ public:
 	Vec2 GetPos() { return m_vPos; }
 	Vec2 GetScale() { return m_vScale; }
 
+	CCollider* GetCollider() { return m_pCollider; }
+
 	void CreateCollider();
 
 public:
@@ -25,6 +27,10 @@ public:
 	// 모든 오브젝트의 finalupdate 는 부모가 알아서 처리를 하니 
 	// 자식이 오버라이딩을 못 하도록 막아야한다.
 	virtual void finalupdate() final;
+
+
+	void component_render(HDC _dc);
+
 
 public:
 	CObject();

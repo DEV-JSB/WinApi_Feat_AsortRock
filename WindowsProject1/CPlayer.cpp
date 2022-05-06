@@ -9,6 +9,8 @@
 #include"CPathMgr.h"
 #include"CResMgr.h"
 
+#include"CCollider.h"
+
 CPlayer::CPlayer()
 	:m_pTex(nullptr)
 {
@@ -17,6 +19,8 @@ CPlayer::CPlayer()
 
 	CreateCollider();
 
+
+	GetCollider()->SetScale(Vec2(100.f, 100.f));
 	/*m_pTex = new CTexture;
 
 
@@ -74,6 +78,10 @@ void CPlayer::render(HDC _dc)
 		, 0, 0, iWidth, iHeight
 		, RGB(2, 2, 2));
 	// 내가 받은 텍스쳐의 RGB 를 2,2,2 라서 2,2,2 를 무시해라 했더니 잘 된다. ㅋㅋ
+
+
+	// 컴포넌트 (충돌체 , etc . . . ) 가 있는 경우 렌더
+	component_render(_dc);
 }
 
 void CPlayer::CreateMissile()

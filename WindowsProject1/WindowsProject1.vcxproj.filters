@@ -73,6 +73,9 @@
     <Filter Include="Engine\07. Compent">
       <UniqueIdentifier>{dd2020a1-824a-4e65-a32a-955a7874777a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\08. Module">
+      <UniqueIdentifier>{eead5a50-5f10-4c21-a602-dff70a06fee4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -142,6 +145,9 @@
     <ClInclude Include="CCollider.h">
       <Filter>Engine\07. Compent</Filter>
     </ClInclude>
+    <ClInclude Include="SelectGDI.h">
+      <Filter>Engine\08. Module</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WindowsProject1.rc">
@@ -207,6 +213,9 @@
     </ClCompile>
     <ClCompile Include="CCollider.cpp">
       <Filter>Engine\07. Compent</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectGDI.cpp">
+      <Filter>Engine\08. Module</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

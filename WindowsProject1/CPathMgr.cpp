@@ -9,7 +9,7 @@ void CPathMgr::Init()
 {
 	GetCurrentDirectory(255, m_szContentPath);
 
-	int iLen = wcslen(m_szContentPath);
+	int iLen = (int)wcslen(m_szContentPath);
 
 
 	// 상위 폴더로 나간다
