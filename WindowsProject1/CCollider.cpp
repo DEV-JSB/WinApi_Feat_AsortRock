@@ -33,7 +33,7 @@ void CCollider::render(HDC _dc)
 	//HBRUSH hHollowBrush = CCore::GetInst()->GetBrush(BRUSH_TYPE::HOLLOW);
 	//HBRUSH hDefaultBrush = (HBRUSH)SelectObject(_dc, hHollowBrush);
 
-	SelectGDI p (_dc , PEN_TYPE::GREEN);
+	SelectGDI p (_dc , PEN_TYPE::BLUE);
 	SelectGDI b (_dc, BRUSH_TYPE::HOLLOW);
 	// SelectGDI 는 임시 멤버 객체 임으로 
 	// 나중에 소멸하니까 소멸자를 무조건 호출하게 되어 있다.

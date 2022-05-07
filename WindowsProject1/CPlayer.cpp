@@ -19,8 +19,8 @@ CPlayer::CPlayer()
 
 	CreateCollider();
 
-
-	GetCollider()->SetScale(Vec2(100.f, 100.f));
+	GetCollider()->SetOffsetPos(Vec2(0.f,15.f));
+	GetCollider()->SetScale(Vec2(80.f, 100.f));
 	/*m_pTex = new CTexture;
 
 

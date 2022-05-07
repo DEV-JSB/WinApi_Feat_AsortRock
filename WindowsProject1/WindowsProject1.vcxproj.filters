@@ -76,6 +76,9 @@
     <Filter Include="Engine\08. Module">
       <UniqueIdentifier>{eead5a50-5f10-4c21-a602-dff70a06fee4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Manager\CCollisionMgr">
+      <UniqueIdentifier>{03e33a84-a799-4d28-a47d-73113e5a376d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -148,6 +151,9 @@
     <ClInclude Include="SelectGDI.h">
       <Filter>Engine\08. Module</Filter>
     </ClInclude>
+    <ClInclude Include="CCollisionMgr.h">
+      <Filter>Engine\03. Manager\CCollisionMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WindowsProject1.rc">
@@ -216,6 +222,9 @@
     </ClCompile>
     <ClCompile Include="SelectGDI.cpp">
       <Filter>Engine\08. Module</Filter>
+    </ClCompile>
+    <ClCompile Include="CCollisionMgr.cpp">
+      <Filter>Engine\03. Manager\CCollisionMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

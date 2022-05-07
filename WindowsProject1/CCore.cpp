@@ -5,6 +5,7 @@
 #include"CTimeMgr.h"
 #include"CSceneMgr.h"
 #include"CPathMgr.h"
+#include"CCollisionMgr.h"
 //#include "CCore.h"
 //
 //
@@ -86,7 +87,9 @@ void CCore::progress()
 	// Manager Update
 	CTimeMgr::GetInst()->update();
 	CKeyMgr::GetInst()->update();
+
 	CSceneMgr::GetInst()->update();
+	CCollisionMgr::GetInst()->update();
 
 
 	// ==================================
@@ -111,8 +114,8 @@ void CCore::CreateBrushPen()
 
 	//red blue green pen
 	m_arrPen[(UINT)PEN_TYPE::RED] = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
-	m_arrPen[(UINT)PEN_TYPE::RED] = CreatePen(PS_SOLID, 1, RGB(255, 255, 0));
-	m_arrPen[(UINT)PEN_TYPE::RED] = CreatePen(PS_SOLID, 1, RGB(255, 0, 255));
+	m_arrPen[(UINT)PEN_TYPE::GREEN] = CreatePen(PS_SOLID, 1, RGB(0, 255, 0));
+	m_arrPen[(UINT)PEN_TYPE::BLUE] = CreatePen(PS_SOLID, 1, RGB(0, 0, 255));
 
 
 }
