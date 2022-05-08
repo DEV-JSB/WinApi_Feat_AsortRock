@@ -70,7 +70,7 @@ void CCollisionMgr::CollisionGroupUpdate(GROUP_TYPE _eLeft, GROUP_TYPE _eRight)
 
 bool CCollisionMgr::IsCollision(CCollider* _pleftCol, CCollider* _pRightCol)
 {
-
+	return true;
 
 }
 
@@ -102,6 +102,3 @@ void CCollisionMgr::CheckGroup(GROUP_TYPE _eLeft, GROUP_TYPE _eRight)
 
 
 
-void CCollisionMgr::Reset()
-{
-}
