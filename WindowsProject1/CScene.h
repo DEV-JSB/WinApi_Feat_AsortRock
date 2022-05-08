@@ -17,7 +17,6 @@ public:
 	virtual void Exit() = 0;  // 해당 씬에 탈출시 호출
 
 
-
 	void update();
 	void finalupdate();
 	void render(HDC _hdc);
@@ -30,6 +29,12 @@ public:
 	void AddObject(CObject* _pObj, GROUP_TYPE _eType)
 	{
 		m_arrvecObj[(UINT)_eType].push_back(_pObj);
+	}
+
+	// 씬에 담겨있는 그룹을 그저 참조만 하라고 보내주는 함수
+	const vector<CObject*>& GetGroupObject(GROUP_TYPE _eType)
+	{
+		return m_arrvecObj[(UINT)_eType];
 	}
 
 public:
