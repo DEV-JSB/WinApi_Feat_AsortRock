@@ -13,6 +13,14 @@ CCollider::CCollider()
 {
 }
 
+CCollider::CCollider(const CCollider& _origin)
+	: m_pOwner(nullptr)
+	, m_vOffsetPos(_origin.m_vOffsetPos)
+	, m_vScale(_origin.m_vScale)
+	, m_iID(g_iNextID++)
+{
+}
+
 CCollider::~CCollider()
 {
 }
@@ -49,5 +57,18 @@ void CCollider::render(HDC _dc)
 
 	//SelectObject(_dc, hDefaultBrush);
 	//SelectObject(_dc, hDefaultPen);
+}
+
+void CCollider::OnCollision(CCollider* _pOther)
+{
+
+}
+
+void CCollider::OnCollisionEnter(CCollider* _pOther)
+{
+}
+
+void CCollider::OnCollisionExit(CCollider* _pOther)
+{
 }
 
