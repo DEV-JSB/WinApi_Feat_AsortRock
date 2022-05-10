@@ -18,6 +18,8 @@ CCollisionMgr::~CCollisionMgr()
 
 void CCollisionMgr::update()
 {
+	// Row == 행
+	// Col == 열
 	for (UINT iRow = 0; iRow < (UINT)GROUP_TYPE::END; ++iRow)
 	{
 		m_arrCheck[iRow];
@@ -52,6 +54,9 @@ void CCollisionMgr::CollisionGroupUpdate(GROUP_TYPE _eLeft, GROUP_TYPE _eRight)
 		{
 			// 애초에 충돌체가 없을 경우에 체크하지마라고 예외처리
 			// || 같은 그룹끼리의 충돌에서 나 자신과의 충돌을 방지해야 한다.
+			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			// 에러 발생지점
+			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			if (nullptr == vecRight[i]->GetCollider()
 				|| vecLeft[i] == vecRight[i])
 				continue;
