@@ -115,8 +115,18 @@ void CCollisionMgr::CollisionGroupUpdate(GROUP_TYPE _eLeft, GROUP_TYPE _eRight)
 
 bool CCollisionMgr::IsCollision(CCollider* _pleftCol, CCollider* _pRightCol)
 {
-	return true;
+	Vec2 vLeftPos = _pleftCol->GetFinalPos();
+	Vec2 vLeftScale= _pleftCol->GetScale();
 
+	Vec2 vRightPos = _pRightCol->GetFinalPos();
+	Vec2 vRightScale = _pRightCol->GetScale();
+
+	if (abs(vRightPos.x - vLeftPos.x) < (vLeftScale.x + vRightScale.x) / 2.f
+		&& abs(vRightPos.y - vLeftPos.y) < (vLeftScale.y + vRightScale.y) / 2.f)
+	{
+		return true;
+
+	}
 }
 
 

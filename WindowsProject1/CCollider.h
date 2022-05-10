@@ -12,6 +12,8 @@ private:
 	Vec2		m_vOffsetPos;	// 오브젝트로 부터 상대적인 위치
 	Vec2		m_vFinalPos;	// finalupdate 에서 매 프레임 마다 계산
 
+
+
 	Vec2		m_vScale;		// 충돌체 크기
 
 	UINT		m_iID;			// 충돌체의 고유한 ID 값
@@ -22,6 +24,9 @@ public:
 
 	Vec2 GetOffsetPos() {	return m_vOffsetPos;}
 	Vec2 GetScale() { return m_vScale; }
+
+	Vec2 GetFinalPos() { return m_vFinalPos; }
+
 
 	UINT GetID() { return m_iID; }
 
