@@ -10,6 +10,7 @@ UINT	CCollider::g_iNextID = 0;
 CCollider::CCollider()
 	: m_pOwner(nullptr)
 	, m_iID(g_iNextID++)
+	,m_iCol(0)
 {
 }
 
@@ -33,10 +34,15 @@ void CCollider::finalupdate()
 	Vec2 vObjectPos = m_pOwner->GetPos();
 	m_vFinalPos = vObjectPos + m_vOffsetPos;
 
+	assert(0 < m_iCol); // 충돌체 확인이 뭔가 이상하게 작동을 했을 때
 }
 
 void CCollider::render(HDC _dc)
 {
+	PEN_TYPE ePen = PEN_TYPE::GREEN;
+
+	if (m_iCol)
+		ePen = PEN_TYPE::RED;
 	//HPEN hGreenPen = CCore::GetInst()->GetPen(PEN_TYPE::GREEN);
 	//
 	//HPEN hDefaultPen = (HPEN)SelectObject(_dc, hGreenPen);
@@ -44,7 +50,7 @@ void CCollider::render(HDC _dc)
 	//HBRUSH hHollowBrush = CCore::GetInst()->GetBrush(BRUSH_TYPE::HOLLOW);
 	//HBRUSH hDefaultBrush = (HBRUSH)SelectObject(_dc, hHollowBrush);
 
-	SelectGDI p (_dc , PEN_TYPE::BLUE);
+	SelectGDI p (_dc , ePen);
 	SelectGDI b (_dc, BRUSH_TYPE::HOLLOW);
 	// SelectGDI 는 임시 멤버 객체 임으로 
 	// 나중에 소멸하니까 소멸자를 무조건 호출하게 되어 있다.
@@ -66,9 +72,11 @@ void CCollider::OnCollision(CCollider* _pOther)
 
 void CCollider::OnCollisionEnter(CCollider* _pOther)
 {
+	++m_iCol;
 }
 
 void CCollider::OnCollisionExit(CCollider* _pOther)
 {
+	--m_iCol;
 }
 

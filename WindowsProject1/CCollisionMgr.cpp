@@ -132,6 +132,7 @@ bool CCollisionMgr::IsCollision(CCollider* _pleftCol, CCollider* _pRightCol)
 		return true;
 
 	}
+	return false;
 }
 
 
