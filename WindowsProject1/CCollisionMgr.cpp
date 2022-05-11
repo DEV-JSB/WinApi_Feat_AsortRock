@@ -57,10 +57,10 @@ void CCollisionMgr::CollisionGroupUpdate(GROUP_TYPE _eLeft, GROUP_TYPE _eRight)
 			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			// 에러 발생지점
 			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			if (nullptr == vecRight[i]->GetCollider()
-				|| vecLeft[i] == vecRight[i])
+			if (nullptr == vecRight[j]->GetCollider()
+				|| (vecLeft[i] == vecRight[j]))
 				continue;
-
+			// nullptr == vecRight[i] 로 되있었음 ㅎ;
 			CCollider* pLeftCol = vecLeft[i]->GetCollider();
 			CCollider* pRightCol = vecRight[j]->GetCollider();
 
