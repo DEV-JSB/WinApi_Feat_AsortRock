@@ -79,6 +79,9 @@
     <Filter Include="Engine\03. Manager\CCollisionMgr">
       <UniqueIdentifier>{03e33a84-a799-4d28-a47d-73113e5a376d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Manager\EvenMgr">
+      <UniqueIdentifier>{4a580816-298c-410d-aa36-f3402bfaa710}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -154,6 +157,9 @@
     <ClInclude Include="CCollisionMgr.h">
       <Filter>Engine\03. Manager\CCollisionMgr</Filter>
     </ClInclude>
+    <ClInclude Include="CEventMgr.h">
+      <Filter>Engine\03. Manager\EvenMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WindowsProject1.rc">
@@ -225,6 +231,9 @@
     </ClCompile>
     <ClCompile Include="CCollisionMgr.cpp">
       <Filter>Engine\03. Manager\CCollisionMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CEventMgr.cpp">
+      <Filter>Engine\03. Manager\EvenMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

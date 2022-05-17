@@ -12,6 +12,8 @@ CMonster::CMonster()
 	GetCollider()->SetScale(Vec2(40.f, 40.f));
 }
 
+
+
 void CMonster::update()
 {
 	return;// 20220511
@@ -33,7 +35,15 @@ void CMonster::update()
 	SetPos(vCurPos);
 }
 
+void CMonster::OnCollisionEnter(CCollider* _pOhter)
+{
+	CObject* pOtherObj = _pOhter->GetObj();
 
+	/*if (pOtherObj->GetName() == L"Missile")
+	{
+
+	}*/
+}
 CMonster::~CMonster()
 {
 	
