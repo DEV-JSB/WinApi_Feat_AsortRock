@@ -13,6 +13,12 @@ private:
 
 	CCollider* m_pCollider;
 
+	bool m_bAllive; // Dead 체크를 위한 bool
+
+private:
+	void SetDead() { m_bAllive = false; }
+	// 오직 이벤트 매니저만 건드릴 수 있는 함수
+	// 자식에게도 공개하지 않겠다.
 public:
 	void SetPos(Vec2 _vPos) { m_vPos = _vPos; }
 	void SetScale(Vec2 _vScale) { m_vScale = _vScale; }
@@ -25,7 +31,11 @@ public:
 
 	CCollider* GetCollider() { return m_pCollider; }
 
+	bool IsDead() { return !m_bAllive; }
+
 	void CreateCollider();
+
+
 
 public:
 	virtual void update() = 0;
@@ -44,5 +54,7 @@ public:
 public:
 	CObject();
 	virtual ~CObject();
+
+	friend class CEventMgr;
 };
 

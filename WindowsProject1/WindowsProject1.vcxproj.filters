@@ -160,6 +160,9 @@
     <ClInclude Include="CEventMgr.h">
       <Filter>Engine\03. Manager\EvenMgr</Filter>
     </ClInclude>
+    <ClInclude Include="func.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WindowsProject1.rc">
@@ -175,9 +178,6 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="WindowsProject1.cpp">
-      <Filter>Default</Filter>
-    </ClCompile>
     <ClCompile Include="CCore.cpp">
       <Filter>Engine\02. Core</Filter>
     </ClCompile>
@@ -234,6 +234,10 @@
     </ClCompile>
     <ClCompile Include="CEventMgr.cpp">
       <Filter>Engine\03. Manager\EvenMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsProject1.cpp" />
+    <ClCompile Include="func.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

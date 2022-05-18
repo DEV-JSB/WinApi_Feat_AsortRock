@@ -6,6 +6,8 @@
 #include"CSceneMgr.h"
 #include"CPathMgr.h"
 #include"CCollisionMgr.h"
+#include"CEventMgr.h"
+
 //#include "CCore.h"
 //
 //
@@ -88,7 +90,14 @@ void CCore::progress()
 	CTimeMgr::GetInst()->update();
 	CKeyMgr::GetInst()->update();
 
+
+	// ==================================
+	// Scene Update
+	// ==================================
+
 	CSceneMgr::GetInst()->update();
+	
+	// 충돌체크
 	CCollisionMgr::GetInst()->update();
 
 
@@ -105,6 +114,13 @@ void CCore::progress()
 
 
 	CTimeMgr::GetInst()->render();
+	// ==================================
+	// 다 끝난 후 이벤트 지연 처리
+	// ==================================
+	CEventMgr::GetInst()->update();
+
+
+
 }
 
 void CCore::CreateBrushPen()
