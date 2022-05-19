@@ -34,7 +34,7 @@ void CCollider::finalupdate()
 	Vec2 vObjectPos = m_pOwner->GetPos();
 	m_vFinalPos = vObjectPos + m_vOffsetPos;
 
-	assert(0 < m_iCol); // 충돌체 확인이 뭔가 이상하게 작동을 했을 때
+	assert(0 <= m_iCol); // 충돌체 확인이 뭔가 이상하게 작동을 했을 때
 }
 
 void CCollider::render(HDC _dc)

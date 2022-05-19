@@ -1,8 +1,10 @@
 #include"pch.h"
 #include"func.h"
 
-class CObject;
+
 #include "CEventMgr.h"
+
+
 void CreateObject(CObject* _pObj, GROUP_TYPE _eGroup)
 {
 	tEvent evn = {};
@@ -12,3 +14,13 @@ void CreateObject(CObject* _pObj, GROUP_TYPE _eGroup)
 
 	CEventMgr::GetInst()->AddEvent(evn);
 }
+
+void DeleteObject(CObject* _pObj)
+{
+	tEvent evn = {};
+	evn.eEven = EVENT_TYPE::DELETE_OBJECT;
+	evn.lParam = (DWORD_PTR)_pObj; // 정수로 저장했지만 사실상 우리는 주소라는ㄱ ㅓㅅ을 알고있다.
+
+	CEventMgr::GetInst()->AddEvent(evn);
+}
+
