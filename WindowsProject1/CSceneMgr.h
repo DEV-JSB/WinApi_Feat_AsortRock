@@ -18,5 +18,11 @@ public:
 
 public:
 	CScene* GetCurScene() { return m_pCurScene; }
+
+private:
+	// 이벤트 처리 후에 Change 를 해야 함으로 , private 선언.
+	//
+	void ChangeScene(SCENE_TYPE _eNext);
+	friend class CEventMgr;
 };
 

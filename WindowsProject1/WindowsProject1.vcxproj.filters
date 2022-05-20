@@ -82,6 +82,9 @@
     <Filter Include="Engine\03. Manager\EvenMgr">
       <UniqueIdentifier>{4a580816-298c-410d-aa36-f3402bfaa710}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\Scene_Tool">
+      <UniqueIdentifier>{412c4377-c7c3-4a17-b6e8-1c5ef177449e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -163,6 +166,9 @@
     <ClInclude Include="func.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CScene_Tool.h">
+      <Filter>Engine\05. Scene\Scene_Tool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WindowsProject1.rc">
@@ -238,6 +244,9 @@
     <ClCompile Include="WindowsProject1.cpp" />
     <ClCompile Include="func.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene_Tool.cpp">
+      <Filter>Engine\05. Scene\Scene_Tool</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -10,6 +10,10 @@
 
 #include"CCollisionMgr.h"
 
+
+#include"CKeyMgr.h"
+#include"CSceneMgr.h"
+
 CScene_Start::CScene_Start()
 {
 }
@@ -61,5 +65,15 @@ void CScene_Start::Enter()
 
 void CScene_Start::Exit()
 {
+	DeleteAll();
 	CCollisionMgr::GetInst()->Reset();
+}
+
+void CScene_Start::update()
+{
+	CScene::update();
+	if (KEY_TAP_CHECK(KEY::ENTER))
+	{
+		ChangeScene(SCENE_TYPE::TOOL);
+	}
 }

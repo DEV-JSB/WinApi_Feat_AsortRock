@@ -17,9 +17,9 @@ public:
 	virtual void Exit() = 0;  // «ÿ¥Á æ¿ø° ≈ª√‚Ω√ »£√‚
 
 
-	void update();
-	void finalupdate();
-	void render(HDC _hdc);
+	virtual void update();
+	virtual void finalupdate();
+	virtual void render(HDC _hdc);
 
 
 
@@ -37,6 +37,8 @@ public:
 		return m_arrvecObj[(UINT)_eType];
 	}
 
+	void DeleteGroup(GROUP_TYPE _eTarget);
+	void DeleteAll();
 public:
 	CScene();
 	virtual ~CScene();
