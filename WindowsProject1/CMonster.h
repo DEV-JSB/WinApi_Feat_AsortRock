@@ -24,6 +24,9 @@ public:
     virtual void OnCollisionEnter(CCollider* _pOhter);
 public:
     virtual void update();
+
+
+    CLONE(CMonster);
 public:
     CMonster();
     ~CMonster();

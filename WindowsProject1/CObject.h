@@ -6,14 +6,14 @@ class CObject
 {
 private:
 
-	wstring m_strName;
+	wstring		m_strName;
 
-	Vec2	m_vPos;
-	Vec2	m_vScale;
+	Vec2		m_vPos;
+	Vec2		m_vScale;
 
-	CCollider* m_pCollider;
+	CCollider*	m_pCollider;
 
-	bool m_bAllive; // Dead 체크를 위한 bool
+	bool		m_bAllive; // Dead 체크를 위한 bool
 
 private:
 	void SetDead() { m_bAllive = false; }
@@ -35,7 +35,9 @@ public:
 
 	void CreateCollider();
 
-
+	virtual void OnCollision(CCollider* _pOther) {}
+	virtual void OnCollisionEnter(CCollider* _pOther) {}
+	virtual void OnCollisionExit(CCollider* _pOther) {}
 
 public:
 	virtual void update() = 0;
@@ -47,12 +49,13 @@ public:
 
 	void component_render(HDC _dc);
 	
-	virtual void OnCollision(CCollider* _pOther) {}
-	virtual void OnCollisionEnter(CCollider* _pOther) {}
-	virtual void OnCollisionExit(CCollider* _pOther) {}
+	virtual CObject* Clone() = 0;
 
 public:
 	CObject();
+
+	CObject(const CObject& _origin);
+
 	virtual ~CObject();
 
 	friend class CEventMgr;

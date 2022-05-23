@@ -36,6 +36,15 @@ void CScene_Start::Enter()
 	CScene::AddObject(pObj, GROUP_TYPE::PLAYER);
 
 
+	/*CObject* pOtherPlayer = new CPlayer(*(CPlayer*)pObj);
+	pOtherPlayer->SetPos(Vec2(740.f, 384.f));
+	AddObject(pOtherPlayer, GROUP_TYPE::PLAYER);*/
+
+	CObject* pOtherPlayer = pObj->Clone();
+	pOtherPlayer->SetPos(Vec2(740.f, 384.f));
+	AddObject(pOtherPlayer, GROUP_TYPE::PLAYER);
+
+
 	//몬스터 배치
 	int iMonsterCount = 2;
 	float fMoveDist = 25.f;
