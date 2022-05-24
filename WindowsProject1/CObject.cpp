@@ -50,6 +50,8 @@ CObject::CObject()
 	, m_vScale{}
 	, m_pCollider(nullptr)
 	, m_bAllive(true)
+	, m_pAnimator(nullptr)
+
 {
 }
 
@@ -58,16 +60,24 @@ CObject::CObject(const CObject& _origin)
 	, m_vPos(_origin.m_vPos)
 	, m_vScale(_origin.m_vScale)
 	, m_pCollider(nullptr)
+	, m_pAnimator(nullptr)
 	, m_bAllive(true)
 {
-	m_pCollider = new CCollider(*_origin.m_pCollider);
-	m_pCollider->m_pOwner = this;
+	// 설계 끝난 이후 애니메이터 복제
+
+	if (_origin.m_pCollider)
+	{
+		m_pCollider = new CCollider(*_origin.m_pCollider);
+		m_pCollider->m_pOwner = this;
+	}
 }
 
 CObject::~CObject()
 {
 	if (nullptr != m_pCollider)
 		delete(m_pCollider);
+	if (nullptr != m_pAnimator)
+		delete m_pAnimator;
 }
 
 

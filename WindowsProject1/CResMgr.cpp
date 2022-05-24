@@ -10,10 +10,7 @@ CResMgr::CResMgr()
 CResMgr::~CResMgr()
 {
 	map<wstring, CTexture*>::iterator iter = m_mapTex.begin();
-	for (; iter != m_mapTex.end(); ++iter)
-	{
-		delete iter->second;
-	}
+	Safe_Delete_Map(m_mapTex);
 }
 CTexture* CResMgr::FindTexture(const wstring& _strKey)
 {
