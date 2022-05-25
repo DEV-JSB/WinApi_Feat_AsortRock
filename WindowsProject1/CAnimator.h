@@ -2,17 +2,24 @@
 
 class CObject;
 class CAnimation;
+class CTexture;
 
 class CAnimator
 {
 private:
-	map<wstring, CAnimation*>	m_mapAnim;
-	CObject*					m_pOwner;
+	map<wstring, CAnimation*>	m_mapAnim; // 모든 애니메이션
+	CAnimation*					m_pCurAnim;// 현재 재생중은 애니메이션
+	CObject*					m_pOwner;  // 애니메이터 소유 오브젝트
+
+
 
 public:
-	void CreateAnimation();
-	void FindeAnimation();
+	void CreateAnimation(const wstring& _strName,CTexture* _pTex,Vec2 _vLT,Vec2 _SliceSize,Vec2 _vStep, float _fDuration, UINT _iFrameCount);
+	CAnimation* FindAnimation(const wstring& _strName);
 	void Play();
+
+	void update();
+	void render(HDC _dc);
 
 public:
 	CAnimator();

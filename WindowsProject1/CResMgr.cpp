@@ -9,17 +9,16 @@ CResMgr::CResMgr()
 
 CResMgr::~CResMgr()
 {
-	map<wstring, CTexture*>::iterator iter = m_mapTex.begin();
 	Safe_Delete_Map(m_mapTex);
 }
 CTexture* CResMgr::FindTexture(const wstring& _strKey)
 {
 	// 맵의 반호나은 iterator 로 받아야 한다.
-	map<wstring,CTexture*>::iterator iter = m_mapTex.find(_strKey);
+	map<wstring, CResource*>::iterator iter = m_mapTex.find(_strKey);
 
 	if (iter == m_mapTex.end())
 		return nullptr;
-	return iter->second;
+	return (CTexture*)iter->second;
 }
 
 CTexture* CResMgr::LoadTexture(const wstring& _strkey, const wstring& _strRelativePath)

@@ -32,10 +32,14 @@ public:
 	const wstring& GetName() { return m_strName; }
 
 	CCollider* GetCollider() { return m_pCollider; }
+	CAnimator* GetAnimator() { return m_pAnimator; }
+
 
 	bool IsDead() { return !m_bAllive; }
 
 	void CreateCollider();
+	void CreateAnimator();
+
 
 	virtual void OnCollision(CCollider* _pOther) {}
 	virtual void OnCollisionEnter(CCollider* _pOther) {}

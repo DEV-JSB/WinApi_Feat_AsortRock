@@ -1,12 +1,13 @@
 #pragma once
 
+class CResource;
 class CTexture;
 class CResMgr
 {
 	SINGLE(CResMgr);
 private:
 
-	map<wstring, CTexture*> m_mapTex;
+	map<wstring, CResource*> m_mapTex;
 
 public:
 	CTexture* LoadTexture(const wstring& _strkey, const wstring& _strRelativePath);

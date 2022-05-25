@@ -11,11 +11,13 @@
 
 #include"CCollider.h"
 
+#include"CAnimator.h"
+
 CPlayer::CPlayer()
 	:m_pTex(nullptr)
 {
-
-	m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\Test.bmp");
+	//Texture 로딩하기
+	//m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\Test.bmp");
 
 	CreateCollider();
 
@@ -27,6 +29,10 @@ CPlayer::CPlayer()
 	wstring strFilepath = CPathMgr::GetInst()->GetContentPath();
 	strFilepath += L"texture\\File.bmp";
 	m_pTex->Load(strFilepath);*/
+
+	m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\link.bmp");
+	CreateAnimator();
+	GetAnimator()->CreateAnimation(L"WALK_DOWN",m_pTex, Vec2(0.f, 513.f), Vec2(119.1f, 128.25f), Vec2(119.1f, 0.f), 1.f, 10);
 }
 void CPlayer::update()
 {

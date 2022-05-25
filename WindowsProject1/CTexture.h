@@ -18,7 +18,7 @@ public:
 private:
     // 누구나 생성할 수 없게 막자
     CTexture();
-    ~CTexture();
+    virtual ~CTexture();
 
     friend class CResMgr;
 };

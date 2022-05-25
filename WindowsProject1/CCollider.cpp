@@ -57,10 +57,10 @@ void CCollider::render(HDC _dc)
 	// 나중에 소멸하니까 소멸자를 무조건 호출하게 되어 있다.
 
 	Rectangle(_dc
-		, m_vFinalPos.x - m_vScale.x / 2.f
-		, m_vFinalPos.y - m_vScale.y / 2.f
-		, m_vFinalPos.x + m_vScale.x / 2.f
-		, m_vFinalPos.y + m_vScale.y / 2.f);
+		, (float)(m_vFinalPos.x - m_vScale.x / 2.f)
+		, (float)(m_vFinalPos.y - m_vScale.y / 2.f)
+		, (float)(m_vFinalPos.x + m_vScale.x / 2.f)
+		, (float)(m_vFinalPos.y + m_vScale.y / 2.f));
 
 	//SelectObject(_dc, hDefaultBrush);
 	//SelectObject(_dc, hDefaultPen);
