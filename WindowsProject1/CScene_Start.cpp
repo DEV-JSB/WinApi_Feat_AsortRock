@@ -31,7 +31,7 @@ void CScene_Start::Enter()
 	CObject* pObj = new CPlayer;
 
 	pObj->SetPos(Vec2(640.f,384.f));
-	pObj->SetScale(Vec2(100.f,100.f));
+	pObj->SetScale(Vec2(50.f,50.f));
 
 	CScene::AddObject(pObj, GROUP_TYPE::PLAYER);
 
@@ -40,9 +40,11 @@ void CScene_Start::Enter()
 	pOtherPlayer->SetPos(Vec2(740.f, 384.f));
 	AddObject(pOtherPlayer, GROUP_TYPE::PLAYER);*/
 
-	CObject* pOtherPlayer = pObj->Clone();
+
+	// 플레이어 복사 생성
+	/*CObject* pOtherPlayer = pObj->Clone();
 	pOtherPlayer->SetPos(Vec2(740.f, 384.f));
-	AddObject(pOtherPlayer, GROUP_TYPE::PLAYER);
+	AddObject(pOtherPlayer, GROUP_TYPE::PLAYER);*/
 
 
 	//몬스터 배치

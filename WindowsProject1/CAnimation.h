@@ -11,6 +11,9 @@ struct tAnimFrm
 	Vec2	vSlice;
 	// 자를 사이즈 영역
 	float	fDuration;
+	// 유지를 시킬 시간
+
+
 };
 
 
@@ -22,6 +25,7 @@ private:
 	CTexture*			m_pTex; // Animation 이 사용하는 텍스쳐
 
 	vector<tAnimFrm>	m_vecFrm; // 모든 프레임 정보
+	int					m_iCurFrm; // 현재 프레임
 
 public:
 	const wstring& GetName(){return m_strName;}

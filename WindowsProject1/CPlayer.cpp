@@ -14,7 +14,6 @@
 #include"CAnimator.h"
 
 CPlayer::CPlayer()
-	:m_pTex(nullptr)
 {
 	//Texture 로딩하기
 	//m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\Test.bmp");
@@ -22,7 +21,7 @@ CPlayer::CPlayer()
 	CreateCollider();
 
 	GetCollider()->SetOffsetPos(Vec2(0.f,15.f));
-	GetCollider()->SetScale(Vec2(80.f, 100.f));
+	GetCollider()->SetScale(Vec2(80.f, 80.f));
 	/*m_pTex = new CTexture;
 
 
@@ -30,9 +29,12 @@ CPlayer::CPlayer()
 	strFilepath += L"texture\\File.bmp";
 	m_pTex->Load(strFilepath);*/
 
-	m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\link.bmp");
+	CTexture* pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\link.bmp");
+
+
 	CreateAnimator();
-	GetAnimator()->CreateAnimation(L"WALK_DOWN",m_pTex, Vec2(0.f, 390.f), Vec2(90.f, 97.5f), Vec2(90.f, 0.f), 1.f, 10);
+	GetAnimator()->CreateAnimation(L"WALK_DOWN", pTex, Vec2(0.f, 390.f), Vec2(90.f, 97.5f), Vec2(90.f, 0.f), 1.f, 10);
+	GetAnimator()->Play(L"WALK_DOWN");
 }
 void CPlayer::update()
 {
@@ -65,10 +67,10 @@ void CPlayer::update()
 
 void CPlayer::render(HDC _dc)
 {
-	int iWidth = (int)m_pTex->Width();
+	/*int iWidth = (int)m_pTex->Width();
 	int iHeight = (int)m_pTex->Height();
 
-	Vec2 vPos = GetPos();
+	Vec2 vPos = GetPos();*/
 	//BitBlt(_dc
 	//		, (int)(vPos.x - (float)(iWidth / 2))
 	//		, (int)(vPos.y - (float)(iHeight / 2))
@@ -76,13 +78,13 @@ void CPlayer::render(HDC _dc)
 	//		, m_pTex->GetDC()
 	//		, 0, 0, SRCCOPY);
 
-	TransparentBlt(_dc
+	/*TransparentBlt(_dc
 		, (int)(vPos.x - (float)(iWidth / 2))
 		, (int)(vPos.y - (float)(iHeight / 2))
 		, iWidth, iHeight
 		, m_pTex->GetDC()
 		, 0, 0, iWidth, iHeight
-		, RGB(2, 2, 2));
+		, RGB(2, 2, 2));*/
 	// 내가 받은 텍스쳐의 RGB 를 2,2,2 라서 2,2,2 를 무시해라 했더니 잘 된다. ㅋㅋ
 
 

@@ -8,7 +8,6 @@ class CPlayer :
     public CObject
 {
 private:
-    CTexture* m_pTex;
 public:
     virtual void update();
     virtual void render(HDC _dc);
@@ -17,7 +16,6 @@ public:
 
     CPlayer(const CPlayer& _origin)
         : CObject(_origin)
-        , m_pTex(_origin.m_pTex)
     {}
 
     ~CPlayer();
