@@ -5,6 +5,7 @@
 CAnimator::CAnimator()
 	:m_pCurAnim(nullptr)
 	, m_pOwner(nullptr)
+	,m_bRepeat(false)
 {
 }
 
@@ -39,15 +40,23 @@ CAnimation* CAnimator::FindAnimation(const wstring& _strName)
 		return iter->second;
 }
 
-void CAnimator::Play(const wstring& _strName)
+void CAnimator::Play(const wstring& _strName, bool _bRepeat)
 {
 	m_pCurAnim = FindAnimation(_strName);
+	m_bRepeat = _bRepeat;
 }
 
 void CAnimator::update()
 {
 	if (nullptr != m_pCurAnim)
+	{
 		m_pCurAnim->update();
+		// 최적화를 위한 반복여부 변경이 될 여부 맨 앞.
+		if (m_bRepeat && m_pCurAnim->IsFinish())
+		{
+			m_pCurAnim->SetFrame(0);
+		}
+	}
 }
 
 void CAnimator::render(HDC _dc)

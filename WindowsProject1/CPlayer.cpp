@@ -33,8 +33,8 @@ CPlayer::CPlayer()
 
 
 	CreateAnimator();
-	GetAnimator()->CreateAnimation(L"WALK_DOWN", pTex, Vec2(0.f, 390.f), Vec2(90.f, 97.5f), Vec2(90.f, 0.f), 1.f, 10);
-	GetAnimator()->Play(L"WALK_DOWN");
+	GetAnimator()->CreateAnimation(L"WALK_DOWN", pTex, Vec2(0.f, 390.f), Vec2(90.f, 97.5f), Vec2(90.f, 0.f), 0.1f, 10);
+	GetAnimator()->Play(L"WALK_DOWN",true);
 }
 void CPlayer::update()
 {
@@ -62,7 +62,7 @@ void CPlayer::update()
 		CreateMissile();
 	}
 	SetPos(vPos);
-
+	GetAnimator()->update();
 }
 
 void CPlayer::render(HDC _dc)
