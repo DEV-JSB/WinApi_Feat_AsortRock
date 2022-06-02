@@ -10,6 +10,8 @@ struct tAnimFrm
 	// 텍스쳐 내에서 좌상단
 	Vec2	vSlice;
 	// 자를 사이즈 영역
+	Vec2	vOffset;
+
 	float	fDuration;
 	// 유지를 시킬 시간
 
@@ -38,6 +40,9 @@ public:
 		m_iCurFrm = _iFrameIdx;
 		m_fAccTime = 0.f;
 	}
+
+	tAnimFrm& GetFrame(int _iIdx) { return m_vecFrm[_iIdx]; }
+	int GetMaxFrame() { return m_vecFrm.size(); }
 
 private:
 	void SetName(const wstring& _strName) { m_strName = _strName; }
