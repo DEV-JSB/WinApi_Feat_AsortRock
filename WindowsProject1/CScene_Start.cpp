@@ -14,6 +14,8 @@
 #include"CKeyMgr.h"
 #include"CSceneMgr.h"
 
+#include"CCamera.h"
+
 CScene_Start::CScene_Start()
 {
 }
@@ -72,6 +74,9 @@ void CScene_Start::Enter()
 	CCollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::PLAYER, GROUP_TYPE::MONSTER);
 	CCollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::MONSTER, GROUP_TYPE::PROJ_PLAYER);
 
+
+	// Camera Look ÁöÁ¤
+	CCamera::GetInst()->SetLookAt(vResolution / 2.f);
 }
 
 void CScene_Start::Exit()
