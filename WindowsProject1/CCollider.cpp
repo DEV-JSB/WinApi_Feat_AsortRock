@@ -2,7 +2,7 @@
 #include "CCollider.h"
 #include"CObject.h"
 #include"CCore.h"
-
+#include"CCamera.h"
 #include"SelectGDI.h"
 
 UINT	CCollider::g_iNextID = 0;
@@ -56,11 +56,13 @@ void CCollider::render(HDC _dc)
 	// SelectGDI 는 임시 멤버 객체 임으로 
 	// 나중에 소멸하니까 소멸자를 무조건 호출하게 되어 있다.
 
+	Vec2 vRenderPos = CCamera::GetInst()->GetRenderPos(m_vFinalPos);
+
 	Rectangle(_dc
-		, (float)(m_vFinalPos.x - m_vScale.x / 2.f)
-		, (float)(m_vFinalPos.y - m_vScale.y / 2.f)
-		, (float)(m_vFinalPos.x + m_vScale.x / 2.f)
-		, (float)(m_vFinalPos.y + m_vScale.y / 2.f));
+		, (float)(vRenderPos.x - m_vScale.x / 2.f)
+		, (float)(vRenderPos.y - m_vScale.y / 2.f)
+		, (float)(vRenderPos.x + m_vScale.x / 2.f)
+		, (float)(vRenderPos.y + m_vScale.y / 2.f));
 
 	//SelectObject(_dc, hDefaultBrush);
 	//SelectObject(_dc, hDefaultPen);

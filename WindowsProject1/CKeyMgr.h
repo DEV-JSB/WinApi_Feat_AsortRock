@@ -45,6 +45,10 @@ enum class KEY
 	ENTER,
 	ESC,
 
+	LBTN,
+	RBTN,
+
+
 	LAST
 };
 
@@ -61,6 +65,7 @@ class CKeyMgr
 	SINGLE(CKeyMgr);
 private:
 	vector<tKeyInfo>m_vecKey;
+	Vec2			m_vCurMousePos;
 public:
 	void Init();
 	void update();
@@ -70,6 +75,6 @@ public:
 	{
 		return m_vecKey[(int)_eKey].eState;
 	}
-
+	Vec2 GetMousePos() {return m_vCurMousePos;};
 };
 

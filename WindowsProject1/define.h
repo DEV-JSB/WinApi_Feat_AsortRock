@@ -22,6 +22,8 @@
 #define KEY_TAP_CHECK(key) KEY_CHECK(key,KEY_STATE::TAP)
 #define KEY_TAP_AWAY(key) KEY_CHECK(key,KEY_STATE::AWAY)
 #define KEY_TAP_NONE(key) KEY_CHECK(key,KEY_STATE::NONE)
+#define MOUSE_POS CKeyMgr::GetInst()->GetMousePos()
+
 
 #define PI 3.1415926535f
 

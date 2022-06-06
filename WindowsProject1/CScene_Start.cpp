@@ -37,6 +37,8 @@ void CScene_Start::Enter()
 
 	CScene::AddObject(pObj, GROUP_TYPE::PLAYER);
 
+	//CCamera::GetInst()->SetTarget(pObj);
+
 
 	/*CObject* pOtherPlayer = new CPlayer(*(CPlayer*)pObj);
 	pOtherPlayer->SetPos(Vec2(740.f, 384.f));
@@ -87,9 +89,16 @@ void CScene_Start::Exit()
 
 void CScene_Start::update()
 {
+	
 	CScene::update();
 	if (KEY_TAP_CHECK(KEY::ENTER))
 	{
 		ChangeScene(SCENE_TYPE::TOOL);
 	}
+	if (KEY_TAP_CHECK(KEY::LBTN))
+	{
+		Vec2 vLookAt = CCamera::GetInst()->GetRealPos(MOUSE_POS);
+		CCamera::GetInst()->SetLookAt(vLookAt);
+	}
+
 }
