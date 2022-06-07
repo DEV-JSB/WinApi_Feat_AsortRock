@@ -78,7 +78,7 @@ void CScene_Start::Enter()
 
 
 	// Camera Look ÁöÁ¤
-	CCamera::GetInst()->SetLookAt(vResolution / 2.f);
+	CCamera::GetInst()->SetLookAt(Vec2(0.1f,0.1f));
 }
 
 void CScene_Start::Exit()
