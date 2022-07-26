@@ -1,6 +1,6 @@
 // WindowsProject1.cpp : Defines the entry point for the application.
 //
-#include"pch.h"
+#include"global.h"
 #include "framework.h"
 #include "WindowsProject1.h"
 #include "CCore.h"
@@ -56,7 +56,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 
 
-    SetTimer(g_hWnd, 0, 0, nullptr);
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WINDOWSPROJECT1));
 
@@ -83,7 +82,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
     }
 
-    KillTimer(g_hWnd, 0);
     // 윈도우 메세지 기반 처리 방식을 쓰지 않고 게임을 만들 것 이다.
 
     return (int) msg.wParam;

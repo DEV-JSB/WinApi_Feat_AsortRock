@@ -171,7 +171,6 @@ void CCollisionMgr::CheckGroup(GROUP_TYPE _eLeft, GROUP_TYPE _eRight)
 		m_arrCheck[iRow] |= (1 << iCol);
 	}
 	// ????
-
 }
 
 
